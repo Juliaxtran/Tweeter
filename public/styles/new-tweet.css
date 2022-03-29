@@ -1,4 +1,9 @@
-
+.new-tweet {
+  margin: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 form {
 display: flex;
@@ -22,6 +27,7 @@ label{
   display: flex;
   justify-content: space-between;
   padding: 10px;
+
 }
 
 .counter {
