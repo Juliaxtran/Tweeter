@@ -1,9 +1,9 @@
 header {
-  position: absolute;
-  top: 115px;
+  /* position: absolute; */
+
   height: 400px;
   min-width: 100%;
-
+ padding-top: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,9 +12,8 @@ header {
   color: white;
   background-color: lightblue;
   background-image: url("https://www.transparenttextures.com/patterns/grid-me.png")
-
 }
 
-header > h2 {
-  margin-bottom: 100px;
+.name {
+  font-size: 35px;
 }
