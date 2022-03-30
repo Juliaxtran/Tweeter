@@ -1,0 +1,64 @@
+article {
+  border: 5px solid black ;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 1em 2em;
+}
+
+article:hover {
+  box-shadow: 10px 10px lightgray;
+}
+
+
+article header.tweet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f4f1ec;
+  background-image: none;
+  color: black;
+  padding: 10px;
+
+
+}
+
+.profile {
+  display: flex;
+}
+
+.profile-pic{
+  width: 100px;
+  height: 100px;
+
+}
+
+.tweet-footer{
+  border-top: 5px solid black ;
+}
+
+.profile-handle{
+  color: rgb(114, 114, 114);
+  margin-right: 1em;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 2em;
+}
+
+.fa-solid {
+  color: navy;
+}
+
+.fa-solid:hover {
+  color: #cdc50a
+}
+
+article > p {
+  margin-left: 2em;
+}

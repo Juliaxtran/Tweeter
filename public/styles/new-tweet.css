@@ -13,10 +13,12 @@ justify-content: center;
 }
 
 textarea{
+resize: none;
 border-bottom: 5px solid black;
 border-top: none;
 border-right: none;
 background-color: #f4f1ec;
+
 }
 
 label{

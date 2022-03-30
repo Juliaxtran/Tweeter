@@ -1,9 +1,7 @@
 header {
-  /* position: absolute; */
-
   height: 400px;
   min-width: 100%;
-  padding-top: 0px;
+  /* margin-top: 5em; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,4 +14,8 @@ header {
 
 .name {
   font-size: 35px;
+}
+
+header.main-header{
+  margin-top: 5em;
 }
