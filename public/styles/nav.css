@@ -8,7 +8,8 @@ nav {
   position: fixed;
   top: 0;
   min-width: 100%;
-  background-color: #4056a1;
+  background-color: lightblue;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
   font-family:'Bungee', cursive;
   color: #FFFFFF;
 

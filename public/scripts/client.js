@@ -9,7 +9,7 @@
 
 $(document).ready(function () {
 
-// helper functions
+
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -48,7 +48,7 @@ $(document).ready(function () {
   </article>
 
     `
-     return item;
+    return item;
   }
 
 
@@ -62,35 +62,48 @@ $(document).ready(function () {
 
   }
 
-// Post Form
+  //Toggle new tweet
+  $(".nav-text").click(() => {
+    $(".new-tweet").toggle();
+    $("#tweet-text").focus();
+
+
+  })
+
+
+
+
+
+
+  // Post Form
 
   $("form").on("submit", function (event) {
     event.preventDefault()
 
     const formData = $("#tweet-text");
 
-    let error = setInterval(()=> {
+    let error = setInterval(() => {
       $(".error").slideUp("slow")
-      } ,7000);
+    }, 5000);
 
-
-     
 
     // Form Validation
-    if(formData.val().length === 0) {
+    if (formData.val().length === 0) {
       $(".error-msg").text("Error: Field cannot be empty");
-      $(".error").css("visibility", "visible").hide().slideDown("slow");
+      $(".error").slideDown("slow");
       error();
-      return
-     }
+      return;
+    }
 
 
 
-    if( formData.val().length > 140 ) {
+    if (formData.val().length > 140) {
 
-      $(".error").css("visibility", "visible").hide().slideDown("slow");
-      $('form').trigger("reset");
-      error();
+      $("form").trigger("reset");
+      $(".counter").removeClass("counterDanger")
+      $(".counter").text("140");
+      $(".error").slideDown("slow");
+      return error();
 
     }
 
@@ -99,13 +112,13 @@ $(document).ready(function () {
     const form = $(this).serialize();
 
     $.post("/tweets", form);
-    location.href = location.href;
+    location.reload();
 
   });
 
 
 
-//Get Form
+  //Get Form
 
   const loadTweets = () => {
     $.ajax("/tweets", { method: 'GET' })

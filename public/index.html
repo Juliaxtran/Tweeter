@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
@@ -53,14 +56,10 @@
     </div>
   </nav>
   <!-- Header content -->
+  <div class = "desktop">
   <header class="main-header">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
+      <img class="main-img" src="/images/profile-hex.png">
       <p class="name"><strong>Julia</strong> Tran</p>
-    </div>
   </header>
 
 
@@ -71,11 +70,13 @@
     <section class="new-tweet">
 
       <div class="error">
-      <i id="warning" class="fa-solid fa-triangle-exclamation"></i>
-      <h2 class="error-msg" >Error: You have exceeeded our character count.</h2>
+       <h2> ⚠️ Error: You have exceeeded our character count.</h2>
       </div>
 
       <h2>Compose Tweet</h2>
+
+
+
       <form method="POST" action="/tweets" id="target">
         <label for="tweet-text"><strong>What are you humming about?</strong></label>
         <textarea rows="1" name="text" id="tweet-text"></textarea>
@@ -121,6 +122,7 @@
 
 
   </main>
+</div>
 </body>
 
 </html>

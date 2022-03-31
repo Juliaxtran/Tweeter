@@ -28,11 +28,37 @@ body {
 
 main {
   width: 100%;
-  display: flex;
   background-color: #f4f1ec ;
-  flex-direction: column;
-  justify-content: center;
-  text-align: start ;
+  margin: 0 auto;
+  /* text-align: start ; */
   color: black;
+}
+
+@media only screen and (min-width: 1024px) {
+
+
+body {
+  display: flex;
+  justify-content: space-around;
+  overflow-x: hidden;
+}
+
+.desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+main {
+  width: 50%;
+  margin: 6em 0 0;
+}
+
 
 }
+
+
+
+
+

@@ -49,14 +49,11 @@ color : white;
 }
 
 .error {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: none;
   color: red;
   font-size: 1em;
   border: 5px solid red ;
-  visibility: hidden;
-
+  text-align: center;
 }
 
 
@@ -64,4 +61,8 @@ color : white;
 #warning {
   margin: 35px;
   color: red;
+}
+
+article > p {
+  margin: 0.5em;
 }
