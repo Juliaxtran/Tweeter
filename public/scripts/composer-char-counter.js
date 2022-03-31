@@ -18,4 +18,20 @@ $(document).ready(function () {
 
   })
 
+
+
+  //Toggle new tweet
+  $(".nav-text").click(() => {
+    $(".new-tweet").toggle();
+    $("#tweet-text").focus();
+
+  })
+
+  //scroll
+  $(window).scroll(function () {
+    console.log('I am scrolling');
+
+  });
+
+
 });

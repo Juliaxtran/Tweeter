@@ -62,23 +62,14 @@ $(document).ready(function () {
 
   }
 
-  //Toggle new tweet
-  $(".nav-text").click(() => {
-    $(".new-tweet").toggle();
-    $("#tweet-text").focus();
-
-
-  })
-
-
-
 
 
 
   // Post Form
 
   $("form").on("submit", function (event) {
-    event.preventDefault()
+
+    event.preventDefault();
 
     const formData = $("#tweet-text");
 
@@ -89,7 +80,7 @@ $(document).ready(function () {
 
     // Form Validation
     if (formData.val().length === 0) {
-      $(".error-msg").text("Error: Field cannot be empty");
+      $(".error-msg").text("⚠️ Error: Field cannot be empty");
       $(".error").slideDown("slow");
       error();
       return;
@@ -100,7 +91,7 @@ $(document).ready(function () {
     if (formData.val().length > 140) {
 
       $("form").trigger("reset");
-      $(".counter").removeClass("counterDanger")
+      $(".counter").removeClass("counterDanger");
       $(".counter").text("140");
       $(".error").slideDown("slow");
       return error();
