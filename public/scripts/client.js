@@ -6,71 +6,98 @@
 
 
 
-const createTweetElement = (data) => {
-  const item = `
-  <article>
 
-  <header class=tweet>
-    <div class=profile>
-      <img class=profile-pic src="${data.user.avatars}">
-      <h3>${data.user.name}</h3>
-    </div>
-    <h3 class="profile-handle">${data.user.handle}</h3>
-  </header>
+$(document).ready(function () {
 
-  <p>${data.content.text}</p>
+// helper functions
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
 
 
-  <footer class=tweet-footer>
-     <h5>${timeago.format(data["created_at"])}</h5>
-    <div class="icons">
-      <i class="fa-solid fa-flag"></i>
-      <i class="fa-solid fa-retweet"></i>
-      <i class="fa-solid fa-heart"></i>
-    </div>
+  const createTweetElement = (data) => {
+    const item = `
+    <article>
 
-  </footer>
+    <header class=tweet>
+      <div class=profile>
+        <img class=profile-pic src="${escape(data.user.avatars)}">
+        <h3>${escape(data.user.name)}</h3>
+      </div>
+      <h3 class="profile-handle">${data.user.handle}</h3>
+    </header>
 
-
-</article>
-
-  `
-  return item;
-}
+    <p>${escape(data.content.text)}</p>
 
 
-const renderTweets = function (tweets) {
-  for (const tweet of tweets) {
 
-    let allTweets = createTweetElement(tweet);
-    $('.tweet-container').prepend(allTweets);
+    <footer class=tweet-footer>
+       <h5>${escape(timeago.format(data["created_at"]))}</h5>
+      <div class="icons">
+        <i class="fa-solid fa-flag"></i>
+        <i class="fa-solid fa-retweet"></i>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+
+    </footer>
+
+
+  </article>
+
+    `
+     return item;
+  }
+
+
+  const renderTweets = function (tweets) {
+    for (const tweet of tweets) {
+
+      let allTweets = createTweetElement(tweet);
+      $('.tweet-container').prepend(allTweets);
+
+    }
 
   }
 
-}
-
-
-
-
-
-$(document).ready(function () {
+// Post Form
 
   $("form").on("submit", function (event) {
     event.preventDefault()
 
     const formData = $("#tweet-text");
-// Form Validation
-    if( formData === null) {
-      alert("Error: input cannot be empty");
+
+    let error = setInterval(()=> {
+      $(".error").slideUp("slow")
+      } ,7000);
+
+
+     
+
+    // Form Validation
+    if(formData.val().length === 0) {
+      $(".error-msg").text("Error: Field cannot be empty");
+      $(".error").css("visibility", "visible").hide().slideDown("slow");
+      error();
+      return
      }
 
+
+
     if( formData.val().length > 140 ) {
-      alert("Error: input exceeds max character count");
-      return  $('form').trigger("reset");
+
+      $(".error").css("visibility", "visible").hide().slideDown("slow");
+      $('form').trigger("reset");
+      error();
+
     }
 
+
+
     const form = $(this).serialize();
+
     $.post("/tweets", form);
     location.href = location.href;
 
@@ -78,7 +105,7 @@ $(document).ready(function () {
 
 
 
-
+//Get Form
 
   const loadTweets = () => {
     $.ajax("/tweets", { method: 'GET' })
@@ -88,10 +115,6 @@ $(document).ready(function () {
   }
 
   loadTweets();
-
-
-
-
 
 
 })

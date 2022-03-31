@@ -34,7 +34,9 @@
 
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -67,10 +69,16 @@
   <main class="container">
 
     <section class="new-tweet">
+
+      <div class="error">
+      <i id="warning" class="fa-solid fa-triangle-exclamation"></i>
+      <h2 class="error-msg" >Error: You have exceeeded our character count.</h2>
+      </div>
+
       <h2>Compose Tweet</h2>
       <form method="POST" action="/tweets" id="target">
         <label for="tweet-text"><strong>What are you humming about?</strong></label>
-        <textarea rows="1" name="text" id="tweet-text" ></textarea >
+        <textarea rows="1" name="text" id="tweet-text"></textarea>
         <div class="button-counter">
           <button class="button" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
@@ -78,7 +86,7 @@
       </form>
     </section>
     <!-- Tweet Container -->
-    <section class = "tweet-container">
+    <section class="tweet-container">
 
 
       <article>
@@ -95,7 +103,7 @@
 
 
         <footer class=tweet-footer>
-          <h5 class="need_to_be_rendered" >10 days ago</h5>
+          <h5>10 days ago</h5>
           <div class="icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
