@@ -73,7 +73,10 @@ $(document).ready(function () {
 
     const formData = $("#tweet-text");
 
-    let error = setInterval(() => {
+    let errorDown = $(".error").slideDown("slow");
+
+
+    let errorUp = setInterval(() => {
       $(".error").slideUp("slow")
     }, 5000);
 
@@ -81,9 +84,9 @@ $(document).ready(function () {
     // Form Validation
     if (formData.val().length === 0) {
       $(".error-msg").text("⚠️ Error: Field cannot be empty");
-      $(".error").slideDown("slow");
-      error();
-      return;
+      errorDown();
+      return errorUp();
+
     }
 
 
@@ -93,8 +96,8 @@ $(document).ready(function () {
       $("form").trigger("reset");
       $(".counter").removeClass("counterDanger");
       $(".counter").text("140");
-      $(".error").slideDown("slow");
-      return error();
+      errorDown();
+      return errorUp();
 
     }
 

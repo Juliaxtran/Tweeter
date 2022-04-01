@@ -9,7 +9,8 @@ $(document).ready(function () {
     let remaining = maxChar - $(this).val().length;
     const counter = $(".counter");
     $(counter).text(remaining);
-    let count = $(this).val().length
+    let count = $(this).val().length;
+
     if (count > maxChar) {
       $(counter).addClass("counterDanger");
     } else {
@@ -27,11 +28,6 @@ $(document).ready(function () {
 
   })
 
-  //scroll
-  $(window).scroll(function () {
-    console.log('I am scrolling');
-
-  });
 
 
 });
